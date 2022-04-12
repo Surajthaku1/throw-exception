@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp23
+{
+    internal class throwexception : Exception
+    {
+        private static string errormessa = "invalid data operation";
+        public throwexception() : base(errormessa)
+        {
+
+        }
+
+
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                Console.WriteLine("enter name without mr. and miss");
+                string name = Console.ReadLine();
+                if(name.StartsWith("mr")|| name.StartsWith("miss"))
+                {
+                    throw new throwexception();
+                }
+                else
+                {
+                    Console.WriteLine("welcome:-" + name);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                
+            }
+            Console.ReadLine();
+        }
+    }
+}
